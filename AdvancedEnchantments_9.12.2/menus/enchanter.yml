@@ -1,0 +1,229 @@
+# Configuration for Enchanter
+#  Change commands how to access it in top of config.yml
+
+# set to "none" to disable
+open-sound: "ENDERDRAGON_WINGS"
+# In what worlds enchanter is disabled
+disabled-in-worlds:
+  - "bad_world"
+messages:
+  sound: ENTITY_PLAYER_LEVELUP
+right-click-to-view-enchants: true
+go-back-item:
+  enabled: true
+  item:
+    type: NETHER_STAR
+    id: 0
+    custom-model-data: 0
+  name: "&c&Quay lại"
+  lore: [ ]
+# Should enchanter stay open after item is bought?
+keep-open: true
+# Enchanter inventory size
+# 9-18-27-36-45-54
+#
+# Placeholders:
+#  %group-enchant-count% - number of enchants in the group
+#  %price% - price
+#  %left% - remaining needed exp until player can purchase item
+# Economy:
+# exp, money, level, souls (works with items that are held when opening inventory), diamonds, gold (gold ingots), emeralds
+inventory:
+  size: 18
+  name: "&8Enchanter"
+  settings:
+    # Which level books should enchanter give?
+    # "ALL" - gives all levels
+    # <number> - Gives specific level of enchant
+    enchanterBookLevel: "ALL"
+  items:
+    0-18:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 7
+        custom-model-data: 0
+        force-glow: false
+      name: " "
+      lore: [ ]
+    2:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 0
+        custom-model-data: 0
+        force-glow: false
+      enchant-group: SIMPLE
+      price: exp:400
+      sound: BLOCK_ANVIL_LAND
+      name: "&8【&7Hộp Phù Phép &fSimple&8】"
+      lore:
+      - ""
+      - "&7Bên trong hộp phù phép"
+      - "&7chứa một loại sách lạ."
+      - "&7phát ra ánh sáng &fTrắng&7!"
+      - ""
+      - "&f▪ &7Giá sách: &d%price% ◇ &7"
+      - "&f▪ &7Đang có: &d%exp% ◇ "
+      - ""
+      - "&e▶ Chuột trái&f đế mua sách này."
+      - "&e▶ Chuột phải&f đế xem trước."
+    3:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 5
+        custom-model-data: 0
+        force-glow: false
+      enchant-group: UNIQUE
+      sound: BLOCK_ANVIL_LAND
+      price: exp:800
+      name: "&8【&7Hộp Phù Phép &aUnique&8】"
+      lore:
+      - ""
+      - "&7Bên trong hộp phù phép"
+      - "&7chứa một loại sách lạ."
+      - "&7phát ra ánh sáng &aXanh&7!"
+      - ""
+      - "&f▪ &7Giá sách: &d%price% ◇ &7"
+      - "&f▪ &7Đang có: &d%exp% ◇ "
+      - ""
+      - "&e▶ Chuột trái&f đế mua sách này."
+      - "&e▶ Chuột phải&f đế xem trước."
+    4:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 3
+        custom-model-data: 0
+        force-glow: false
+      enchant-group: ELITE
+      price: exp:2500
+      sound: BLOCK_ANVIL_LAND
+      name: "&8【&7Hộp Phù Phép &bElite&8】"
+      lore:
+      - ""
+      - "&7Bên trong hộp phù phép"
+      - "&7chứa một loại sách lạ."
+      - "&7phát ra ánh sáng &bLam&7!"
+      - ""
+      - "&f▪ &7Giá sách: &d%price% ◇ &7"
+      - "&f▪ &7Đang có: &d%exp% ◇ "
+      - ""
+      - "&e▶ Chuột trái&f đế mua sách này."
+      - "&e▶ Chuột phải&f đế xem trước."
+    5:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 4
+        custom-model-data: 0
+        force-glow: false
+      enchant-group: ULTIMATE
+      price: exp:5000
+      sound: BLOCK_ANVIL_LAND
+      name: "&8【&7Hộp Phù Phép &eUltimate&8】"
+      lore:
+      - ""
+      - "&7Bên trong hộp phù phép"
+      - "&7chứa một loại sách lạ."
+      - "&7phát ra ánh sáng &eVàng&7!"
+      - ""
+      - "&f▪ &7Giá sách: &d%price% ◇ &7"
+      - "&f▪ &7Đang có: &d%exp% ◇ "
+      - ""
+      - "&e▶ Chuột trái&f đế mua sách này."
+      - "&e▶ Chuột phải&f đế xem trước."
+    6:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 1
+        custom-model-data: 0
+        force-glow: false
+      enchant-group: LEGENDARY
+      price: exp:25000
+      sound: BLOCK_ANVIL_LAND
+      name: "&8【&7Hộp Phù Phép &6Legendary&8】"
+      lore:
+      - ""
+      - "&7Bên trong hộp phù phép"
+      - "&7chứa một loại sách lạ."
+      - "&7phát ra ánh sáng &6Cam&7!"
+      - ""
+      - "&f▪ &7Giá sách: &d%price% ◇ &7"
+      - "&f▪ &7Đang có: &d%exp% ◇ "
+      - ""
+      - "&e▶ Chuột trái&f đế mua sách này."
+      - "&e▶ Chuột phải&f đế xem trước."
+    13:
+      item:
+        type: STAINED_GLASS_PANE
+        id: 6
+        custom-model-data: 0
+        force-glow: false
+      enchant-group: FABLED
+      price: exp:40000
+      sound: BLOCK_ANVIL_LAND
+      name: "&8【&7Hộp Phù Phép &dFabled&8】"
+      lore:
+      - ""
+      - "&7Bên trong hộp phù phép"
+      - "&7chứa một loại sách lạ."
+      - "&7phát ra ánh sáng &dHồng&7!"
+      - ""
+      - "&f▪ &7Giá sách: &d%price% ◇ &7"
+      - "&f▪ &7Đang có: &d%exp% ◇ "
+      - ""
+      - "&e▶ Chuột trái&f đế mua sách này."
+      - "&e▶ Chuột phải&f đế xem trước."
+    9:
+      item:
+        type: ANVIL
+        id: 0
+        custom-model-data: 0
+        force-glow: false
+      sound: BLOCK_ANVIL_USE
+      player-command:
+      - "tinkerer"
+      name: "&8[&dPhân Rã Phù Phép&8]"
+      lore:
+      - ""
+      - "&fPhân rã&7 các &btrang bị"
+      - "&7sách &5phù Phép&7 không"
+      - "&7còn sử dụng để nhận"
+      - "&7lại EXP, Bụi Ma Thuật"
+      - ""
+      - "&7Mở nhanh: &e/tinkerer"
+      - ""
+      - "&e▶ Chuột phải đế mở."
+    17:
+      item:
+        type: ENDER_PORTAL_FRAME
+        id: 0
+        custom-model-data: 0
+        force-glow: false
+      sound: ENTITY_ARROW_HIT
+      player-command:
+      - "alchemist"
+      name: "&8[&aDung Hợp Phù Phép&8]"
+      lore:
+      - ""
+      - "&fTích hợp&7 các &btrang"
+      - "&bbị, sách phù phép có"
+      - "&7cùng cấp độ, phẩm chất"
+      - ""
+      - "&7Mở nhanh: &e/alchemist"
+      - " "
+      - "&e▶ Chuột phải đế mở."
+
+# Confirmation inventory for enchanter payments
+# Confirm or deny the transaction, acts like 2-step confirmation
+confirmation-inventory:
+  enabled: true
+  name: "&aXác nhận giao dịch"
+  accept:
+    material: STAINED_GLASS_PANE
+    damage: 5
+    name: "&aChấp nhận giao dịch"
+    lore:
+      - "&7Nhấn để trả %price% bằng %paymentType%"
+  cancel:
+    material: STAINED_GLASS_PANE
+    damage: 14
+    name: "&cClick để huỷ bỏ"
+    lore: [ ]

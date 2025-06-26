@@ -1,0 +1,91 @@
+# General settings related to alchemist inventory system.
+general:
+  settings:
+    # The alchemist should accept books.
+    # If false, the alchemist will not accept books.
+    combine-books: true
+    # The alchemist should accept dust.
+    # If false, the alchemist will not accept dusts.
+    combine-dust: true
+    books:
+      # This method adds chances together and splits by 2 (x+y/2)
+      add-up-chances: true
+      pre-set-chances:
+        enabled: false
+        success: 50
+        destroy: 50
+    dusts:
+      # This method just adds up chances together
+      add-up: true
+    price:
+      economy: EXP # MONEY, EXP, LEVEL
+      # If true the plugin will calculate the price.
+      let-plugin-count: true
+      # Your custom price here.
+      # Only works if let-plugin-count is false.
+      custom-price: 250
+    other-items-slot:
+      first-item-slot: 3
+      second-item-slot: 5
+
+# Options for customization of alchemist inventory.
+inventory:
+  # Set to "none' to disable
+  # the sound when opening the inventory.
+  open-sound: "BLOCK_CHEST_OPEN"
+
+  # The title of the inventory.
+  name: "&fDung hợp phù phép"
+
+  # The size of the inventory.
+  # Must be a multiple of 9. (9, 18, 27, 36, 45, 54)
+  size: 27
+
+  items:
+    preview-item:
+      type: STAINED_GLASS_PANE
+      damage: 0
+      custom-model-data: 0
+      slot: 13
+      name: "&e&lXem trước"
+      lore:
+        - "&7Một bản xem trước của vật phẩm"
+        - "&7bạn sẽ nhận được từ việc"
+        - "&7dung hợp sẽ được hiển thị ở đây."
+    explanation-item:
+      type: STAINED_GLASS_PANE
+      damage: 14
+      custom-model-data: 0
+      slot: 22
+      name: "&e&lGiả kim thuật sĩ"
+      lore:
+        - "&7Nhà giả kim sẽ trao đổi..."
+        - ""
+        - "&b&l* &f2X Sách phù phép"
+        - "&7(có cùng loại và cấp độ)"
+        - "&d= &f1X Sách phù phép"
+        - "&7(có cấp độ cao hơn)"
+        - ""
+        - "&b&l* &f2X Bụi Ma Thuật"
+        - "&7(có độ hiếm bằng nhau)"
+        - "&d= &f1X Bụi Ma Thuật"
+        - "&7(có độ hiếm cao hơn)"
+    confirm-item:
+      type: STAINED_GLASS_PANE
+      damage: 5
+      custom-model-data: 0
+      slot: 22
+      name: "&b&lCLICK ĐỂ TRAO ĐỔI"
+      lore:
+        - "&c&lTIÊU TỐN: &c%price% EXP"
+        - ""
+        - "&7Click để xác nhận trao đổi"
+        - "&7vật phẩm này và nhận vật"
+        - "&7phẩm mới cao cấp hơn ở trên!"
+    filler-item:
+      # Enable or disable the filler item.
+      enabled: true
+      type: STAINED_GLASS_PANE
+      damage: 15
+      name: " "
+      lore: [ ]

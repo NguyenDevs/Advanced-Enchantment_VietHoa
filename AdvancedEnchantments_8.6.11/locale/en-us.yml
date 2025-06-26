@@ -1,0 +1,212 @@
+# Use %p% to insert the plugins prefix.
+# All messages support HEX color codes on 1.16+. Format: {#FFFFFF}
+# Almost all messages support PlaceholderAPI.
+prefix: '&7[&9AdvancedEnchantments&7]&r '
+
+effects:
+  steal-money: '&6%attacker% &7stole &6%amount% &7from &6%victim%&7!'
+commands:
+  no-permission: '&cBạn không có quyền làm việc này!'
+  offline-player: '&cNgười chơi này đang ngoại tuyến!'
+  enchantment-not-found: '&cKhông tìm thấy phù phép &c&n%enchant%'
+  invalid-amount: '&cKhông hợp lệ. Phải từ 1-64.'
+  invalid-enchant: '&c%enchant% không phải là một phù phép hợp lệ!'
+  invalid-level: '&cCấp độ phù phép không hợp lệ! Thử sử dụng: %levels%'
+  invalid-Sử dụng: '&cSử dụng: %Sử dụng%'
+  not-a-number: '&c%number% không phải là một chữ số!'
+  not-holding-item: '&cBạn phải cầm một vật phẩm!'
+  enchantment-info:
+    invalid-Sử dụng: '&cInvalid Sử dụng! Proper Sử dụng: %command% <enchantment>'
+    open-menu-message: '&7Thông tin chỉ số enchant: &e%enchant%'
+  enchants:
+    open-menu-message: '&7Hiển thị danh sách tất cả các enchant...'
+  apply:
+    cooldown: '&cBạn sẽ được phép sử dụng lại lệnh này sau %seconds% giây.'
+    no-args: '&cVui lòng chỉ định trình phát nào sẽ bị ảnh hưởng.'
+    reapplied: '&aÁo giáp của bạn đã được áp dụng lại.'
+    reapplied-other: '&aÁo giáp đã được áp dụng lại cho %player%.'
+    reapplied-for-all: '&aÁo giáp đã được áp dụng lại cho tất cả người chơi!'
+  withdrawsouls:
+    invalid-Sử dụng: '&cSử dụng: /withdrawsouls <count>'
+    less-than-one: '&cSố lượng phải là 1 số dương.'
+    invalid-item: '&cVật phẩm không hợp lệ.'
+  aegive:
+    invalid-material: '&cInvalid material. Please reference the ''materials.yml''
+      file for all valid materials.'
+    invalid-item-flag: '&cInvalid ItemFlag! You can choose from the following: %itemflags%'
+    invalid-enchantment: '&cInvalid Enchantment!'
+    success: '&aGave &2%amount%x %material% &ato %player%&a!'
+  gedit:
+    unknown-gkit: '&c%gkit% is not a valid gkit!'
+    edit:
+      invalid-Sử dụng: '&cSử dụng: /gedit edit <gkit>'
+    set-permission:
+      invalid-Sử dụng: '&cSử dụng: /gedit setpermission <gkit> <perm>'
+      success: '&eChanged &6%gkit%''s&e kit permission to &6%permission%'
+    reset:
+      invalid-Sử dụng: '&cSử dụng: /gedit reset <gkit> <player>'
+      success: '&6%gkit% &6gkit has been reset for player &e%player%'
+    list: '&eGKits: &6%gkits%'
+    setdelay:
+      invalid-Sử dụng: '&cSử dụng: /gedit setdelay <gkit> <delay (in seconds)>'
+      invalid-delay: '&c%delay% is not a valid integer!'
+      success: '&eChanged &6%gkit%&e kit delay to &6%delay%'
+  main:
+    unknown-command: '&cSử dụng! Type "/ae" for the correct Sử dụng.'
+    setsouls:
+      invalid-Sử dụng: '&cSử dụng: /ae setsouls <amount>'
+      invalid-item: '&cVật phẩm không hợp lệ.'
+      success: '&cĐặt số lượng linh hồn của vật phẩm thành: %amount%'
+    unenchant:
+      invalid-Sử dụng: '&cSử dụng: /ae unenchant <enchant>'
+      invalid-enchant: '&c%enchant% không phải là một enchant hợp lệ!'
+      not-holding-item: '&cBạn phải cầm một vật phẩm!'
+      does-not-have-enchant: '&cThat item doesn''t have &4%enchant%&c!'
+      success: '&aRemoved enchant %enchant%!'
+    zip:
+      zip-exists: '&cPlease try again.'
+      success: '&eA zip file containing all plugin data has been created at %path%.'
+      error: '&cAn error occurred while zipping files! Check console for more information.'
+    greset:
+      reset: '&aReset the %gkit% kit for %player%!'
+      reset-all: '&aReset all GKits for %player%!'
+    claim:
+      invalid-Sử dụng: '&cPlease enter enchant token.'
+    givegkit:
+      success: '&cKit %gkit% was given to player %player%'
+    giverandombook:
+      success: '&aGave &2%player% %amount%x %group% &abooks!'
+    givebook:
+      success: '&aGave &2%player% %amount%x %enchant% %level% &abooks!'
+    enchant:
+      added: '&aAdded the %enchant% enchant!'
+      upgraded: '&2Upgraded %enchant% from level %prevLevel% to %level%.'
+      downgraded: '&2Downgraded %enchant% from level %prevLevel% to %level%.'
+      removed: '&cRemoved the %enchant% enchant from the item.'
+    giveitem:
+      success: '&7Added %amount%x %item%&7 for player &b%player%'
+    givercbook:
+      success: '&aGave &2%player% %amount%x %group% &aright click books!'
+    give:
+      success: '&aSuccessfully gave %player% one %enchant% %level% book!'
+    tinkereritem:
+      success: '&cGave x%amount% tinkerer item''s to %player%'
+    admin:
+      invalid-page: '&cTrang không hợp lệ'
+    info:
+    - '&eThông tin chỉ số enchant &e%enchant%'
+    - '&6Mô tả&7: &e%description%'
+    - '&6Trang bị&7: &e%applies%'
+    - '&6Cấp độ tối đa&7: &e%max-level%'
+    pastetypes: '&aEnchantment type list: %url%'
+    pasteenchants: '&aEnchantments list: %url%'
+    open: '&aĐã mở %menu% cho %player%!'
+  invalid-usage: '&cUsage: %usage%'
+token:
+  success: '&2&lx &aSuccessfully downloaded token &l%token%&a enchantment, reloading...'
+interact:
+  main-hand-only: '&cBạn chỉ có thể làm việc này bằng tay chính!'
+enchanter:
+  re-buy: '&cPlease re-buy the item from the enchanter.'
+  disabled-in-world: '&cEnchant bị vô hiệu trong thế giới này.'
+  full-inventory: '&cKho đồ đã đầy!'
+  examine-book: '&7Bạn đã mở khóa %group-color%%group%&7 và tìm thấy %enchant-color%'
+  unknown-payment-method: '&cKhông xác thực được phương thức thanh toán %paymentType%,
+    hãy liên hệ administrator.'
+  successful-purchase: '&aMua thành công!'
+  cannot-afford:
+  - '&cBạn không có đủ EXP để mua enchant này.'
+  - '&7XP của bạn: %exp%'
+tinkerer:
+  trade-accepted: '&aChấp nhận giao dịch!'
+  non-tradeable-item:
+  - '&cTinkerer không muốn vật phẩm này!'
+  - '&7chỉ chấp nhận vật phẩm có phù phép'
+alchemist:
+  doesnt-accept: '&cNhà giả kim không chấp nhận vật phẩm này!'
+  trade-cancelled: '&cGiao dịch thất bại.'
+  cannot-afford: '&cBạn không đủ khả năng thanh toán giao dịch này!'
+  exceeds-max-level: '&cCấp độ dung hợp của bạn vượt quá cấp độ phù phép tối đa!'
+gkits:
+  no-permission: '&eBạn không có quyền sử dụng bộ trang bị &e%gkit%'
+  cooldown: '&eBạn chưa được phép sử dụng bộ trang bị này, &6%gkit%&e vẫn chưa khôi
+    phục &7(%cooldown%)'
+  used-kit: '&eBạn đã sử dụng bộ trang bị &6%gkit%.'
+  missing-permission: '&cGkit %gkit%''s permission is invalid or non-existent'
+  unknown-gkit: '&cBộ trang bị %gkit% không tồn tại!'
+  unknown-enchant: '&7Không tìm thấy enchant %enchant%.'
+heroic:
+  cannot-apply: '&cKhông thể trang bị Crystal Upgrade cho vật phẩm này.'
+  upgrade-failed: '&cCrystal upgrade &nfailed&c!'
+orbs:
+  cannot-apply: '&cKhông thể trang bị orb cho vật phẩm này!'
+  failed: '&cOrb thất bại!'
+  incompatible: '&cKhông thể trang bị orb thấp hơn vị trí đã có!'
+sets:
+  commands:
+    unknown-command: '&cLỗi câu lệnh! Sử dụng "/asets" để xem danh sách câu lệnh hợp
+      lệ.'
+    invalid-Sử dụng: '&cSử dụng không hợp lệ! Vui lòng tham khảo /asets để sử dụng
+      thích hợp'
+    invalid-set: '&cBộ trang bị không hợp lệ.'
+    invalid-set-piece: "&cBộ phận không hợp lệ, bạn có thể sử dụng một trong những:\
+      \ \n%set pieces%"
+    invalid-weapon: '&cVũ khí không hợp lệ.'
+    offline-player: '&cNgười chơi đang ngoại tuyến.'
+    invalid-chances: '&cCơ hội không hợp lệ.'
+    list:
+      header: '&eDanh sách tất cả các loại bộ trang bị có sẵn &7[%size%]'
+      set: ' &8>> &f%set%'
+    listweapons:
+      header: '&eDanh sách tất cả các loại vũ khí có sẵn &7[%size%]'
+      weapon: ' &8>> &f%weapon%'
+    give:
+      success: '&eĐã trao &f %set% &echo &f %player%'
+    givepiece:
+      success: '&eĐã trao &f%piece% &etừ &f%set% &echo &f %player%'
+    weapon:
+      success: '&eĐã trao &f %weapon% &echo &f %player%'
+items:
+  randomization-scroll:
+    cannot-apply: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&eLàm Mới Cổ Ngữ&8] &ckhông thể trang bị lên
+      vật phẩm này!'
+    single-items-only: '&cChỉ có thể sử dụng trên từng vật phẩm!'
+  black-scroll:
+    full-inventory: '&cKho đồ đã đầy!'
+    no-enchants: '&cVật phẩm này không có phù phép nào!'
+    invalid-enchant: '&cKhông thể loại bỏ vì phù phép lỗi!'
+    cannot-remove: '&cPhù phép %enchant% không thể bị loại bỏ!'
+  soul-tracker:
+    disabled: '&cSouls chưa được bật! Hãy bật nó trong Config!'
+    apply-successful: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aThu Hồn&8] &ađã được áp dụng lên vật
+      phẩm!'
+  magic-dust:
+    full-inventory: '&cKho đồ đã đầy!'
+    single-items-only: '&cChỉ có thể sử dụng trên từng vật phẩm!'
+  white-scroll:
+    full-inventory: '&cKho đồ đã đầy!'
+    apply-successful: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&ePhong Ấn Cổ Ngữ&8] &ađã được áp dụng
+      lên vật phẩm!'
+    item-saved: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&ePhong Ấn Cổ Ngữ&8] &cđã cứu vật phẩm của bạn!'
+combining:
+  already-max-level: Enchant này đã ở cấp độ tối đa!
+  success: '&aThành công! &7%enchant% bây giờ đã lên cấp độ %level%!'
+  failure: '&cDung hợp thất bại!'
+  something-went-wrong: '&cĐã xảy ra sự cố khi dung hợp.'
+enchant-limitations:
+  cannot-be-modified: '&cKhông thể sửa đổi mục này!'
+applying:
+  not-applicable-with: '&cEnchant &4%enchant1% &ckhông thể trang bị cùng với &4%enchant2%&7
+    &ctrong vật phẩm!'
+  requires-enchant: '&cEnchant &4%enchant1% &cyêu cầu vật phẩm phải có &4%enchant2%&7
+    &cđể có thể ép!'
+  already-applied: '&cVật phẩm đã có enchant này rồi!.'
+  applied: '&aÉp thành công.'
+  max-level: '&cEnchant này đã tới cấp độ tối đa!'
+  wrong-material: '&cEnchant không thể trang bị lên vật phẩm này.'
+slots:
+  limit-reached: '&cBạn không thể ép thêm! Vật phẩm này đã hết chỗ để ép!'
+chances:
+  book-failed: '&cÉp thất bại nhưng vật phẩm đã không biến mất!'
+destroy:
+  book-failed: '&cÉp thất bại!'

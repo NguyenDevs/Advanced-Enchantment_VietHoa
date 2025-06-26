@@ -1,0 +1,146 @@
+# Configuration for Armor Sets GUI
+# This guy will let players preview armor sets on the server
+
+# Command list that will open the GUI
+commands:
+  - "/armorsets"
+  - "/previewsets"
+
+gui:
+  name: "&7Armor Sets"
+  size: 27
+  items:
+    0-27:
+      material: STAINED_GLASS_PANE
+      damage: 15
+      name: " "
+      lore: [ ]
+    10:
+      material: CHEST
+      damage: 0
+      armorSet: DimensionalTraveller
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&5&lTRAVELLER SET BONUS"
+        - "&D* Bạn gây thêm 30% sát thương."
+        - "&D* Khả năng thụ động: Dimensional Shift."
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt)"
+    11:
+      material: CHEST
+      damage: 0
+      armorSet: Koth
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&d&lKOTH SET BONUS"
+        - "&d&l* &d+20% Sát thương PvP"
+        - "&d&l* &d+50% Sát thương PvE"
+        - "&d&l* &dAuto Bless"
+        - "&d&l* &dKháng sát thương rơi"
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt.)"
+    12:
+      material: CHEST
+      damage: 0
+      armorSet: Phantom
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&c&lPHANTOM SET BONUS"
+        - "&cGây +25% sát thương lên tất cả kẻ thù."
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt.)"
+    13:
+      material: CHEST
+      damage: 0
+      armorSet: Ranger
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&a&lRANGER SET BONUS"
+        - "&a&l* &aGiảm 25% sát thương cung tên của kẻ địch."
+        - "&a&l* &aRanger Bow: Tăng 30% sát thương cho Cung."
+        - "&a&l* &aKháng Teleblock"
+        - "&a&l* &aEnchant: Gears IV"
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt.)"
+    14:
+      material: CHEST
+      damage: 0
+      armorSet: Supreme
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&4&lSUPREME SET BONUS"
+        - "&4&l* &4Enchant: Gears IV"
+        - "&4&l* &4Kháng sát thương rơi / Kháng hiệu ứng đói"
+        - "&4&l* &4Gây + 15% sát thương lên tất cả kẻ thù"
+        - "&4&l* &4Mũi tên của kẻ địch gây +10% sát thương lên bạn."
+        - "&4&l* &4+200% Clout"
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt.)"
+    15:
+      material: CHEST
+      damage: 0
+      armorSet: Yeti
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&b&lYETI SET BONUS"
+        - "&b* Gây + 10% sát thương lên tất cả kẻ thù."
+        - "&b* Giảm +10% sát thương của kẻ địch."
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt.)"
+    16:
+      material: CHEST
+      damage: 0
+      armorSet: Yijki
+      name: "%armor set name%"
+      lore:
+        - "&7Được tạo ra từ &f%armor set material%"
+        - "&7Click để xem &npreview&7"
+        - " "
+        - "&f&lYIJKI SET BONUS"
+        - "&F* Giảm +30% sát thương của kẻ địch."
+        - "&f* Khả năng thụ động: Revenge of Yijki"
+        - "&7&o(Yêu cầu 4 vật phẩm để kích hoạt.)"
+
+previewArmorSet:
+  name: "&7Previewing Armor Set"
+  size: 27
+  items:
+    0-27:
+      material: STAINED_GLASS_PANE
+      damage: 15
+      name: " "
+      lore: [ ]
+    11:
+      itemType: SET_HELMET
+    12:
+      itemType: SET_CHESTPLATE
+    13:
+      itemType: SET_LEGGINGS
+    14:
+      itemType: SET_BOOTS
+    15:
+      itemType: SET_WEAPON
+      # Fallback material, if no weapon is present this will be shown instead
+      material: BARRIER
+      damage: 0
+      name: "&cNo Weapon"
+      lore:
+        - "&cBộ này không có trang bị vũ khí!"
+    26:
+      itemType: GO_BACK
+      material: PAPER
+      damage: 0
+      name: "&cQuay lại"
+      lore: [ ]

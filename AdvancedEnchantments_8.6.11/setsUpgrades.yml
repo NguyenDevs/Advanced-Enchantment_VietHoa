@@ -1,0 +1,50 @@
+# Sets Upgrades
+
+# Heroic Upgrades (Increase armor durability and strength)
+# Turns armor it's applied to into a leather item piece for noticibility
+# Command to give an upgrade: /asets giveHeroicUpgrade <player> <set> <chance> [amount]
+
+armorCrystal:
+  item:
+    material: NETHER_STAR
+    damage: 0
+    name: "&6&lArmor Crystal (&a&l%setName%&6&l)"
+    lore:
+      - "&a%chance%% Tỉ lệ thành công"
+      - "&7Có thể áp dụng cho bất kỳ"
+      - "&7bộ giáp nào chưa được trang"
+      - "&7bị thêm Armor Crystal để đạt"
+      - "&7được lợi thế bị động!"
+heroicUpgrades:
+  item:
+    material: INK_SACK
+    damage: 11
+    name: "&6&lHeroic (&a&l%setName%&6&l) Upgrade"
+    lore:
+      - ""
+      - "&7Trang bị cho vật phẩm &a&l%setName%"
+      - "&7có &6%chance%%&7 tỉ lệ yểm bùa"
+      - "sức mạnh của trang bị Heroic Armor!"
+      - ""
+      - "&7Nó sẽ giúp tăng chỉ số cơ bản của"
+      - "&giáp, ví dụ như độ bền, sức mạnh."
+  durability:
+    helmet: 810
+    chestplate: 1000
+    leggings: 935
+    boots: 686
+  armorValue:
+    helmet: 3 # Higher = more resistance to damage
+    chestplate: 8
+    leggings: 6
+    boots: 3
+  addedLore:
+    - ""
+    - "&7+%armorValue% Giá trị bộ giáp."
+    - "&7%durability% Độ bền."
+    - "&4Bộ giáp này khỏe hơn cả kim cương!!!."
+
+# General settings
+settings:
+  # Should durability damage be done in pvp?
+  doPvpDurabilityDamage: true

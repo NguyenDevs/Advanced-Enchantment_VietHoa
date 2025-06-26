@@ -1,0 +1,818 @@
+# AdvancedEnchantments
+# Made by GC
+# Version: 8.6.11
+# Release date: 13/09/2021
+# 
+# ** Commands and permissions
+# /enchanter - Open Enchanter; no permission
+# /tinkerer - Open Tinkerer; no permission
+# /gkits - Open GKits; no permission
+# /ae - Main plugin command; ae.help
+# /ae about - Information about current build; no permission
+# /ae list - List all custom enchantments; ae.list
+# /ae admin - Open a menu with all possible enchantments (100% success rate); ae.admin
+# /ae giveitem <player> <item> - Give various plugin items; ae.giveitem
+# /ae give <player> <enchantment> <level> - Give custom enchanted book; ae.give
+# /ae info <enchantment> - Information about custom enchantment; ae.info
+# /ae reload - Reload all configurations; ae.reload
+# /ae enchant <enchantment> <level> - Enchant item; ae.enchant
+# /ae givebook <player> <enchantment> <level> <count> <success> <destroy> - Give book with specific rates; ae.givebook
+# /ae givercbook <type> <player> <amount> - Give right-clickable book; ae.givercbook
+# /ae giverandombook <player> <group> - Gives random book from group; ae.giverandombook
+# /ae pasteenchants - Pastes formatted enchantments list; ae.admin
+# /alchemist - Open alchemist; no permission
+# /ae givegkit <player> <gkit> - Give player gkit items; ae.givegkit
+# 
+# /aegive - Give player gkit items; ae.give
+# Example: /aegive GC diamond_helmet 1 name:&&7cItem_name protection:5 glowing:1 lore:&&7cLore_line_#1|&&7cSecond_Line
+# 
+# /asets - Advanced Sets commands; asets.admin
+# 
+# Some configurable settings are explained, others should be self-explanatory.
+# Join support discord for help or with questions: https://advancedplugins.net/discord
+# 
+# Change default messages language. You can modify all messages in AdvancedEnchantments `locale` folder.
+# See all default languages & other info here: https://ae.advancedplugins.net/general-information/languages
+language: en-us
+commands:
+  advancedenchantments:
+    permissionMessageEnabled: true
+  enchanter:
+    enabled: true
+    command: /enchanter
+    aliases:
+    - e
+    - ce
+  tinkerer:
+    enabled: true
+    command: /tinkerer
+    aliases:
+    - tinker
+  alchemist:
+    enabled: true
+    command: /alchemist
+    aliases:
+    - alchem
+  withdrawsouls:
+    enabled: true
+    command: /withdrawsouls
+    aliases:
+    - wsouls
+  apply:
+    enabled: true
+    command: /apply
+    aliases:
+    - reapply
+permissions:
+  enchanter:
+    enabled: false
+    perm: ae.enchanter
+  tinkerer:
+    enabled: false
+    perm: ae.tinkerer
+  gkits:
+    enabled: false
+    perm: ae.gkits
+  alchemist:
+    enabled: false
+    perm: ae.alchemist
+disable-enchants:
+  test_world:
+  - test_enchant
+alchemist:
+  settings:
+    combine-books: true
+    combine-dust: true
+  books:
+    add-up-chances: true
+    pre-set-chances:
+      enabled: false
+      success: 50
+      destroy: 50
+  dusts:
+    add-up: true
+  price:
+    exp: true
+    let-plugin-count: true
+    pre-set-pricing:
+      price: 250
+  messages:
+    inv-name: Alchemist
+    item-preview:
+      name: '&e&lItem Preview'
+      lore:
+      - '&7Một bản xem trước của vật phẩm'
+      - '&7bạn sẽ nhận được từ'
+      - '&7Nhà giả kim sẽ được hiển thị ở đây.'
+      item:
+        type: STAINED_GLASS_PANE
+        damage: 0
+    item-explanation:
+      name: '&e&lAlchemist'
+      lore:
+      - '&7Nhà giả kim sẽ trao đổi ...'
+      - ''
+      - '&b&l* &f2X Enchantment Books'
+      - '&7(có cùng loại và cấp độ)'
+      - '&d= &f1X Enchantment Book'
+      - '&7(có cấp độ cao hơn)'
+      - ''
+      - '&b&l* &f2X Magic Dust'
+      - '&7(có độ hiếm ngang nhau)'
+      - '&d= &f1X Magic Dust'
+      - '&7(có tỉ lệ cao hơn)'
+      item:
+        type: STAINED_GLASS_PANE
+        damage: 14
+    item-combine:
+      name: '&b&lCLICK TO EXCHANGE'
+      lore:
+      - '&c&lCOSTS &c%price% EXP'
+      - ''
+      - '&7Nhấn để xác nhận trao đổi vật'
+      - '&7phẩm này và nhận vật phẩm mới hoành'
+      - '&7tráng của bạn được hiển thị ở trên!'
+      item:
+        type: STAINED_GLASS_PANE
+        damage: 5
+    item-placeholder:
+      name: ' '
+      lore: []
+      item:
+        type: STAINED_GLASS_PANE
+        damage: 15
+souls:
+  enabled: true
+  lore: '&cSouls Collected: %souls%'
+  item:
+    type: PAPER
+    id: 0
+    custom-model-data: 0
+    name: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aThu Hồn&8]'
+    lore:
+    - '&7Ép vào vũ khí để theo dõi !'
+    - '&7Linh hồn thu thập được từ việc giết mobs.'
+enchantLimitation:
+  enabled: true
+  lore: '&c&lUnmodifiable'
+  NBT-tag: unmodifiable
+combining:
+  enabled: true
+  chances:
+    use-chances: true
+    break-item: false
+    upgrade: true
+slots:
+  enabled: true
+  max: 9
+  max-increase-of-slots: 13
+  display-in-lore: false
+  display: '&eItem Slots&7: %left%'
+applying:
+  cosmetics:
+    applied:
+      particle: HAPPY_VILLAGER
+      sound: ENTITY_PLAYER_LEVELUP
+    failed:
+      particle: LAVA_POP
+      sound: BLOCK_ANVIL_BREAK
+enchanter-books:
+  firework-on-open: false
+  cosmetics:
+    particle: HAPPY_VILLAGER
+    sound: ENTITY_PLAYER_LEVELUP
+  display-right-click-message: false
+  type: BOOK
+  id: 0
+  custom-model-data: 0
+  force-glow: true
+  name: '&8[&7Hộp Cổ Ngữ %group-color%%group-name%&8]'
+  lore:
+  - '&fBên trong hộp cổ ngữ'
+  - '&fchứa 1 loại sách lạ.'
+  - '&fphát ra ánh sáng lạ!'
+  - ''
+  - '&7Chuột phải để mở khóa.'
+items:
+  settings:
+    can-apply-to:
+    - ALL_SWORD
+    - ALL_ARMOR
+    - ALL_PICKAXE
+    - ALL_AXE
+    - ALL_SPADE
+    - ALL_HOE
+    - ALL_EDIBLE
+    - BOOK
+    - BOW
+    - CROSSBOW
+    - SKULL_ITEM
+    - PLAYER_HEAD
+    - ELYTRA
+    - TRIDENT
+  transmogscroll:
+    type: PAPER
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Cổ Ngữ&8]'
+    lore:
+    - '&fĐếm số lượng Phù Phép có'
+    - '&ftrên trang bị của bạn và'
+    - '&fhiển thị phía sau tên.'
+    - ''
+    - '&7Sau khi ép ngọc trang bị'
+    - '&7sẽ có dòng chữ sau:'
+    - ''
+    - '    &d>&8[ &b&n0&8 ]&d<'
+    enchants-count-formatting: '&d>&8[ &b&n%count%&8 ]&d<'
+  soulgem:
+    type: EMERALD
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aHồn Ngọc &a%count%&8]'
+    lore:
+    - '&fĐưa số linh hồn có trong'
+    - '&fviên ngọc vào Trang Bị của'
+    - '&fbạn.'
+  itemnametag:
+    type: NAME_TAG
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aĐổi Tên]'
+    lore:
+    - '&7Thay đổi và tùy chỉnh vật phẩm của bạn'
+    messages:
+      success:
+      - '&a&l(!) &aBạn đã đổi tên thành công mục của bạn thành &e%name%'
+      activated:
+      - '&a&l(!) &aCâu chat tiếp theo trên thanh chat sẽ thay đổi tên vật phẩm đang
+        cầm'
+      air:
+      - '&a&l(!) &cBạn phải cầm vật phẩm trên tay để làm điều này'
+      renaming-not-enchanted-item:
+      - '&a&l(!) &cYou can only rename enchanted items'
+    settings:
+      colors: true
+      magic: false
+      word-blacklist:
+      - fuck
+      - dick
+      - bitch
+  randomization-scroll:
+    type: PAPER
+    id: 0
+    custom-model-data: 0
+    name: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&eLàm Mới Cổ Ngữ&8]'
+    lore:
+    - ''
+    - '&fLá bùa giúp làm mới ngẫu'
+    - '&fnhiên tỉ lệ thành công và'
+    - '&fthất bại của sách cổ ngữ.'
+    - ''
+    - '&7Dùng cho sách: &8[%group-color%%group-name%&8]'
+  black-scroll:
+    type: INK_SACK
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&eThanh Tẩy Cổ Ngữ&8]'
+    lore:
+    - '&fLá bùa giúp bạn gỡ 1 Phù'
+    - '&fPhép bất kỳ ra khỏi trang'
+    - '&fbị của bạn và bạn sẽ nhận'
+    - '&flại sách phù phép đó.'
+    - ''
+    - '&7Sách được gỡ ra sẽ có tỉ'
+    - '&7lệ thành công &8[&a%success%%&8]'
+    success: 95
+    destroy: 5
+    random: true
+  secret-dust:
+    type: FIREBALL
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&4Bụi Kỳ Bí&8]'
+    lore:
+    - '&fMột loại Bụi Ma Thuật không'
+    - '&fxác định được bên trong nó'
+    - '&fcó những gì.'
+    - ''
+    - '&f ▶ &7Phân Loại: &8[%group-color%&l%group-name%&8]'
+  mystery-dust:
+    type: SULPHUR
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&cBụi Bí Ẩn&8]'
+    lore:
+    - '&fĐây là một sản phẩm'
+    - '&fthất bại của quá'
+    - '&ftrình phân giải'
+  magic-dust:
+    type: SUGAR
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aBụi Ma Thuật&8]'
+    lore:
+    - '&fGiúp tăng tỉ lệ thành công'
+    - '&fcho sách cổ ngữ giống loại'
+    - '&fvới Bụi Ma Thuật này.'
+    - ' '
+    - '&f ▶ &7Dùng cho sácg: &8[%group-color%&l%group-name%&8]'
+    - '&f ▶ &7Tỉ lệ Thành Công &8[&a+%percent%%&8]'
+    messages:
+      cannotApplyToStacked: '&c&l(!) &cCannot be applied to stacked books'
+  slot-increaser:
+    type: EYE_OF_ENDER
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&eKhảm Lỗ&8]'
+    lore:
+    - '&fTăng số lượng ô phù phép'
+    - '&ftrên trang bị của bạn.'
+    - ' '
+    - '&f ▶ &7Tăng Slot cho: &8[%group-color%%group-name%&8]'
+    - '&f ▶ &7Tăng thêm số ô &8[ &a+%count% Ô &8]'
+    messages:
+      success:
+      - '&a&l(!) &aBạn đã tăng thành công thêm ô phù phép lên vật phẩm: %count%!'
+  blocktrak:
+    type: SLIME_BALL
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Block&8]'
+    lore:
+    - '&fĐếm số lượng khối mà bạn'
+    - '&fđã đào khi dùng trang bị'
+    - '&fcó ép ngọc này vào.'
+    - ' '
+    - '&7Sau khi ép ngọc trang bị'
+    - '&7sẽ có dòng chữ sau:'
+    - ' '
+    - '&8  〖&6•&8〗&fĐã đào &60 Block'
+    messages:
+      success:
+      - '&7Bạn đã áp dụng thành công &e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Block&8]'
+    settings:
+      lore-display: '&8〖&6•&8〗&fĐã đào &6%stats% Block'
+  stattrak:
+    type: MAGMA_CREAM
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Kill&8]'
+    lore:
+    - '&fĐếm số lượng người chơi đã'
+    - '&fbỏ mạng dưới vũ khí được ép'
+    - '&fép ngọc này của bạn.'
+    - ' '
+    - '&7Sau khi ép ngọc trang bị'
+    - '&7sẽ có dòng chữ sau:'
+    - ' '
+    - '&8  〖&c◇&8〗&fKilled Human &c0'
+    messages:
+      success:
+      - '&7Bạn đã áp dụng thành công &e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Kill&8]'
+    settings:
+      lore-display: '&8〖&c◇&8〗&fKilled Human &c%stats%'
+  mobtrak:
+    type: SLIME_BALL
+    id: 0
+    custom-model-data: 0
+    name: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Quái&8]'
+    lore:
+    - '&fĐếm số lượng mobs đã'
+    - '&fbị giết bởi vũ khí có'
+    - '&fép ngọc này của bạn.'
+    - ' '
+    - '&7Sau khi ép ngọc trang bị'
+    - '&7sẽ có dòng chữ sau:'
+    - ' '
+    - '&8  〖&4◇&8〗&fKilled Mobs &40'
+    messages:
+      success:
+      - '&7Bạn đã áp dụng thành công &8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aNgọc Đếm Quái&8]'
+    settings:
+      lore-display: '&8〖&4◇&8〗&fKilled Mobs &4%stats%'
+  holywhitescroll:
+    type: PAPER
+    id: 0
+    custom-model-data: 0
+    name: '&e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aRàng Buộc Cổ Ngữ&8]'
+    lore:
+    - '&fLá bùa thần cho phép bạn ràng'
+    - '&fbuộc 1 trang bị của bạn. Giúp nó'
+    - '&fkhông bị rơi ra mỗi khi bạn chết'
+    - ''
+    - '&e▶ &7Thảo vào trang bị mà bạn'
+    - '&7cần ràng buộc khi chết.'
+    messages:
+      applied:
+      - '&7Bạn đã áp dụng thành công &e&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&aRàng Buộc Cổ Ngữ&8]'
+    settings:
+      lore-display: '&f↝ &8ĐÃ KHÓA&f ↜'
+      keep-after-death: false
+  orb:
+    lore: '&a%max% Enchantment Slots &7(Orb [&a+%increased%&7])'
+    weapon:
+      material: EYE_OF_ENDER
+      custom-model-data: 0
+      name: '&6&lWeapon Enchantment Orb &6[&a&n%max%&6]'
+      lore:
+      - '&a%success%% Success Rate'
+      - ''
+      - '&6+%new% Enchantment slots'
+      - '&6%max% Max Enchantment Slots'
+      - ''
+      - '&eIncreases the # of enchantment'
+      - '&eslots on a weapon by %new%,'
+      - '&eup to a maximum of %max%'
+      - '&7Drag n'' Drop onto an item to apply.'
+    armor:
+      material: EYE_OF_ENDER
+      custom-model-data: 0
+      name: '&6&lArmor Enchantment Orb &6[&a&n%max%&6]'
+      lore:
+      - '&a%success%% Success Rate'
+      - ''
+      - '&6+%new% Enchantment slots'
+      - '&6%max% Max Enchantment Slots'
+      - ''
+      - '&eIncreases the # of enchantment'
+      - '&eslots on a piece of armor by %new%,'
+      - '&eup to a maximum of %max%'
+      - '&7Drag n'' Drop onto an item to apply.'
+    tool:
+      material: EYE_OF_ENDER
+      custom-model-data: 0
+      name: '&6&lTool Enchantment Orb &6[&a&n%max%&6]'
+      lore:
+      - '&a%success%% Success Rate'
+      - ''
+      - '&6+%new% Enchantment slots'
+      - '&6%max% Max Enchantment Slots'
+      - ''
+      - '&eIncreases the # of enchantment'
+      - '&eslots on a tool by %new%,'
+      - '&eup to a maximum of %max%'
+      - '&7Drag n'' Drop onto an item to apply.'
+white-scroll:
+  delete: true
+  lore-display: '&5↝&8| &d&lĐÃ PHONG ẤN &8|&5↜'
+  item:
+    type: EMPTY_MAP
+    id: 0
+    force-glow: true
+    name: '&8«&d&lᴇɴᴄʜᴀɴᴛ&8»&8[&ePhong Ấn Cổ Ngữ&8]'
+    lore:
+    - '&fLá bùa giúp trang bị của'
+    - '&fbạn không bị phá hủy mất'
+    - '&fkhi bạn Phù Phép thất bại'
+    - '&fsách vào trang bị đấy.'
+    - ''
+    - '&7Sau khi phong ấn trang bị'
+    - '&7sẽ có dòng chữ dưới đây:'
+    - ''
+    - '&5    ↝&8| &d&lĐÃ PHONG ẤN &8|&5↜'
+enchanter:
+  open-sound: ENTITY_ENDER_DRAGON_FLAP
+  disabled-in-worlds:
+  - bad_world
+  messages:
+    sound: ENTITY_PLAYER_LEVELUP
+  right-click-to-view-enchants: true
+  go-back-item:
+    enabled: true
+    item:
+      type: NETHER_STAR
+      id: 0
+      custom-model-data: 0
+    name: '&cTrở về'
+    lore: []
+  keep-open: true
+  inventory:
+    size: 27
+    name: '&8Enchanter'
+    settings:
+      enchanterBookLevel: ALL
+    items:
+      0-27:
+        item:
+          type: STAINED_GLASS_PANE
+          id: 15
+          force-glow: false
+          custom-model-data: 0
+        name: ' '
+        lore: []
+      '2':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 0
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: SIMPLE
+        price: exp:1000
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &fSimple&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng Trắng!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ''
+        - '&e▶ Ấn đế mua sách này'
+      '3':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 5
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: UNIQUE
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        price: exp:1500
+        name: '&8[&7Hộp Cổ Ngữ &aUnique&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &aXanh&f!'
+        - ' '
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ' '
+        - '&e▶ Ấn đế mua sách này'
+      '4':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 3
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: ELITE
+        price: exp:2500
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &bElite&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &bLam&f!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ' '
+        - '&e▶ Ấn đế mua sách này'
+      '5':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 4
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: ULTIMATE
+        price: exp:5500
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &eUltimate&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &eVàng&f!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ''
+        - '&e▶ Ấn đế mua sách này'
+      '6':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 1
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: LEGENDARY
+        price: exp:15000
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &6Legendary&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &6Cam&f!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ''
+        - '&e▶ Ấn đế mua sách này'
+      '21':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 14
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: MASTERY
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &4Mastery&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &4Đỏ&f!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ''
+        - '&e▶&m Ấn đế mua sách này'
+        - '&4▶   Hàng không bán!.'
+      '22':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 13
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: SOUL
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &2Soul&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &2Xanh&f!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ''
+        - '&e▶&m Ấn đế mua sách này'
+        - '&4▶   Hàng không bán!.'
+      '23':
+        item:
+          type: STAINED_GLASS_PANE
+          id: 2
+          force-glow: true
+          custom-model-data: 0
+        enchant-group: FABLED
+        price: exp:25000
+        sound: BLOCK_ENCHANTMENT_TABLE_USE
+        name: '&8[&7Hộp Cổ Ngữ &5Fabled&8]'
+        lore:
+        - '&fBên trong hộp cổ ngữ'
+        - '&fchứa 1 loại sách lạ.'
+        - '&fphát ra ánh sáng &5Tím&f!'
+        - ''
+        - '&7Giá Sách: &d%price% ◇ &7'
+        - '&7Đang có: &d%exp% ◇ '
+        - ''
+        - '&e▶&m Ấn đế mua sách này'
+        - '&4▶   Hàng không bán!.'
+      '9':
+        item:
+          type: ANVIL
+          id: 0
+          force-glow: true
+          custom-model-data: 0
+        sound: BLOCK_SMITHING_TABLE_USE
+        player-command:
+        - tinkerer
+        name: '&8[&dPhân Rã Cổ Ngữ&8]'
+        lore:
+        - '&fPhân rã các Trang Bị'
+        - '&fsách Phù Phép không'
+        - '&fcòn sử dụng để nhận'
+        - '&flại EXP, Bụi Ma Thuật'
+        - ' '
+        - '&7Mở nhanh: &e/tinkerer'
+        - ' '
+        - '&e▶ Ấn đế mở giao diện'
+      '17':
+        item:
+          type: ENDER_PORTAL_FRAME
+          id: 0
+          force-glow: true
+          custom-model-data: 0
+        sound: BLOCK_GRINDSTONE_USE
+        player-command:
+        - alchemist
+        name: '&8[&aDung Hợp Cổ Ngữ&8]'
+        lore:
+        - '&fTích hợp các Trang'
+        - '&fBị, sách Phù Phép có'
+        - '&fcùng đẳng cấp'
+        - ' '
+        - '&7Mở nhanh: &e/blacksmith'
+        - ' '
+        - '&e▶ Ấn đế mở giao diện'
+destroy:
+  enabled: true
+  destroy-item: false
+chances:
+  random: true
+  success: 92
+  destroy: 8
+  destroy-if-fail:
+    enabled: false
+confirmation-inventory:
+  enabled: true
+  name: '&aXác nhận giao dịch'
+  accept:
+    material: STAINED_GLASS_PANE
+    damage: 5
+    name: '&aChấp nhận giao dịch'
+    lore:
+    - '&7Nhấn để trả %price% bằng %paymentType%'
+  cancel:
+    material: STAINED_GLASS_PANE
+    damage: 14
+    name: '&cNhấn để hủy bỏ'
+    lore: []
+armor-switching:
+  enabled: true
+  sound: ENTITY_PLAYER_LEVELUP
+  armorSkullsSwitching: true
+enchantment-book:
+  anvil-application: false
+  drag-drop-application: true
+  item:
+    type: BOOK
+    id: 0
+    force-glow: true
+    custom-model-data: 0
+  name: '&8[&7Phù Phép &e%enchant-no-color% %level%&8]'
+  lore:
+  - '&e       ɪɴꜰᴏᴍᴀᴛɪᴏɴs   '
+  - ' '
+  - '&f%description%'
+  - ' '
+  - '&f ▶ &7Tỉ lệ Thành Công &8[&a%success%%&8]'
+  - '&f ▶ &7Tỉ lệ Thất Bại &8[&c%destroy%%&8]'
+  - ' '
+  - '&f ▶ &7Sách dùng cho &8[&e%applies%&8]'
+  - '&f ▶ &7Phẩm chất Sách &8[%group-color%%group-name%&8]'
+  - ' '
+  - '&e       ɪɴsᴛʀᴜᴄᴛɪᴏɴs   '
+  - ' '
+  - '&8Thả vào trang bị thích hợp'
+  - '&8để Phù phép lên Trang Bị'
+  - ' '
+  - '&f          ↝ &e✾&f ↜'
+applies-groups:
+  MISC_HELMETS:
+  - TURTLE_HELMET
+  - CARVED_PUMPKIN
+  SKULL_ITEM: []
+settings:
+  grindstones-remove-custom-enchants: true
+  organizeEnchantsOnItems: true
+  lore-organize-mode: 2
+  custom-enchants-cause-glow: false
+  use-legacy-potions-system: true
+  fortune-works-on-iron-gold: false
+  steal-money:
+    message-enabled: false
+  combo-limit: 5
+  trench-autoadd-items: false
+  trench-works-with-more-drops: false
+  renametag-enchanted-only: true
+  itemnametag-max-name-length: 32
+  trench-do-all-durab: true
+  lower-destroy-with-magic-dust: true
+  enable-combo-for-mobs: true
+  clear-potion-effects-on-quit: true
+  ae-market-enabled: true
+  use-numbers: false
+  activate-non-armor-in-armor-slots: false
+  held-effect-static-cross-update: false
+  use-experimental-damage: false
+  use-experimental-block-breaking: false
+  trench-blacklist: []
+  trench-whitelist: []
+  veinmine-whitelist:
+  - COAL_ORE
+  - COPPER_ORE
+  - IRON_ORE
+  - GOLD_ORE
+  - LAPIS_ORE
+  - REDSTONE_ORE
+  - DIAMOND_ORE
+  - EMERALD_ORE
+  - NETHER_QUARTZ_ORE
+  - NETHER_GOLD_ORE
+  - ANCIENT_DEBRIS
+  enchantment-world-blacklist:
+  - no_enchantments_world
+  holy-whitescrolls-world-blacklist:
+  - no_holywhitescrolls_world
+  fly-world-blacklist:
+  - no_fly_world
+  open-enchanter-by-right-clicking-enchantment-table: false
+  stems-count-as-trees: false
+  enchants-debug-mode: false
+  apply-cooldown: 20
+  whitescroll-material-blacklist:
+  - STONE
+  souls-per-kill: 1
+  trench-optimization:
+    automaticallyDetect: true
+  lava-walker-radius: 2
+  water-walker-radius: 2
+  collect-souls-from-mobs: false
+  showFirstLevel: true
+  heal-check: true
+  use-worldguard-fly-flag: false
+  custom-drops-from-spawners: false
+  miningSouls:
+    enabled: false
+    chance: 20
+  bow-full-power: true
+  lore-descriptions:
+    enabled: false
+    display: '%group-color%* &8%description%'

@@ -1,0 +1,93 @@
+# Enchantment groups are used for enchanter, to sell specific type books. You can group them
+# and give each group global color.
+# YOU CAN DELETE THESE GROUPS AND CREATE YOUR OWN
+settings:
+  magic-dust:
+    # Limit applying of Magic dust per group
+    # If false, magic dust can be applied to different groups
+    limit-applying-per-group: true
+  randomization-scrolls:
+    # Limit applying of Randomization scrolls per group
+    # If false, Randomization scrolls can be applied to different groups
+    limit-applying-per-group: true
+  # If set group is invalid, what should be the fall-back group
+  fallback-group: SIMPLE
+groups:
+  SIMPLE:
+    global-color: '&7'
+    group-name: "Simple"
+    item:
+      type: FIREWORK_CHARGE
+      id: 0
+      custom-model-data: 0
+      rgb-color: 200;200;200
+    slot-increaser:
+      slots: 1
+    magic-dust:
+      success: 1-15
+      chance: 22
+  UNIQUE:
+    global-color: '&a'
+    group-name: "Unique"
+    item:
+      type: FIREWORK_CHARGE
+      id: 0
+      custom-model-data: 0
+      rgb-color: 122;255;80
+    slot-increaser:
+      slots: 1
+    magic-dust:
+      success: 1-15
+      chance: 22
+  ELITE:
+    global-color: '&b'
+    group-name: "Elite"
+    item:
+      type: FIREWORK_CHARGE
+      id: 0
+      custom-model-data: 0
+      rgb-color: 20;250;255
+    slot-increaser:
+      slots: 1
+    magic-dust:
+      success: 1-15
+      chance: 22
+  ULTIMATE:
+    global-color: '&e'
+    group-name: "Ultimate"
+    item:
+      type: FIREWORK_CHARGE
+      id: 0
+      custom-model-data: 0
+      rgb-color: 250;255;0
+    slot-increaser:
+      slots: 1
+    magic-dust:
+      success: 1-15
+      chance: 22
+  LEGENDARY:
+    global-color: '&6'
+    group-name: "Legendary"
+    item:
+      type: FIREWORK_CHARGE
+      id: 0
+      custom-model-data: 0
+      rgb-color: 255;182;0
+    slot-increaser:
+      slots: 1
+    magic-dust:
+      success: 1-15
+      chance: 22
+  FABLED:
+    global-color: '&d'
+    group-name: "fabled"
+    item:
+      type: FIREWORK_CHARGE
+      id: 0
+      custom-model-data: 0
+      rgb-color: 133;50;168
+    slot-increaser:
+      slots: 1
+    magic-dust:
+      success: 1-15
+      chance: 22
