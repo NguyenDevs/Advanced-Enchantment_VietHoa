@@ -6,4 +6,4 @@ Authors: GC and Insprill
 
 Việt hóa bởi NguyenDevs
 FB: https://www.facebook.com/NguyenDevs
-MCVN: https://minecraftvn.net/members/NguyenDevs
+MCVN: https://minecraftvn.net/members/nguyendevs.34190/
